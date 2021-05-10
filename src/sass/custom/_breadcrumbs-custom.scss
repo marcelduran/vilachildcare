@@ -1,0 +1,65 @@
+//
+// Breadcrumbs
+// --------------------------------------------------
+.breadcrumbs-custom {
+  position: relative;
+  padding: 15px;
+  vertical-align: middle;
+  background: $breadcrumb-bg;
+  border-bottom: 1px solid $gray-lighter;
+
+  a {
+    display: inline;
+    vertical-align: middle;
+    &, &:active, &:focus {
+      color: $breadcrumb-color;
+    }
+  }
+
+  li {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 36px;
+    font-size: 14px;
+  }
+
+  li:after {
+    content: $breadcrumb-separator;
+    position: absolute;
+    top: 55%;
+    right: 9px;
+    display: inline-block;
+    color: $text-color;
+    font: 400 14px/16px $fa;
+    @include transform(translateY(-50%));
+  }
+
+  li:last-child {
+    padding-right: 0;
+    &:after {
+      display: none;
+    }
+  }
+
+  a:hover,
+  li.active {
+    color: $breadcrumb-active-color;
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  .breadcrumbs-custom {
+    padding: 15px 15px 20px;
+
+    li {
+      padding-right: 44px;
+      font-size: 16px;
+    }
+
+    li:after {
+      right: 13px;
+      font-size: 18px;
+    }
+  }
+}

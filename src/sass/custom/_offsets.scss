@@ -1,0 +1,474 @@
+//
+// Responsive Offsets
+// --------------------------------------------------
+@mixin responsive-offset($offset) {
+  position: relative;
+  transform: translate3d(0, -$offset, 0);
+  margin-bottom: -$offset;
+  pointer-events: none;
+
+  > *:before {
+    content: '';
+    display: table;
+    width: 0;
+  }
+
+  > * {
+    margin-top: $offset;
+    pointer-events: auto;
+  }
+}
+
+@mixin responsive-offset-media($offset) {
+  transform: translateY(-$offset);
+  margin-bottom: -$offset;
+
+  > * {
+    margin-top: $offset;
+  }
+}
+
+.spacing-negative-1 {
+  @include responsive-offset(-1px);
+}
+
+.spacing-10 {
+  @include responsive-offset(10px);
+}
+
+.spacing-20 {
+  @include responsive-offset(20px);
+}
+
+.spacing-30 {
+  @include responsive-offset(30px);
+}
+
+.spacing-55 {
+  @include responsive-offset(55px);
+}
+
+.spacing-70 {
+  @include responsive-offset(50px);
+}
+
+.spacing-90 {
+  @include responsive-offset(50px);
+}
+
+@media (min-width: $screen-sm-min) {
+  .spacing-70 {
+    @include responsive-offset-media(70px);
+  }
+
+  .spacing-90 {
+    @include responsive-offset-media(90px);
+  }
+}
+
+// Insets
+// -------------------------
+.inset-left-25 {
+  padding-left: 25px;
+}
+
+@media (min-width: $screen-md-min) {
+
+  .inset-sm-25 {
+    padding: 0 25px;
+  }
+}
+
+// Sections
+// -------------------------
+
+.section-xs {
+  padding: 40px 0;
+}
+
+.section-md-top {
+  padding-top: 50px;
+}
+
+.section-md-bottom {
+  padding-bottom: 50px;
+}
+
+.section-sm,
+.section-md,
+.section-lg,
+.section-xl {
+  padding: 60px 0;
+}
+
+@media (max-width: $screen-xs-max) {
+  section {
+    &:first-child {
+      &.section-sm,
+      &.section-md,
+      &.section-lg,
+      &.section-xl {
+        padding-top: 40px;
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  section {
+    &:first-child {
+      &.section-sm {
+        padding-top: 100px;
+      }
+    }
+  }
+
+  .section-md {
+    padding: 70px 0;
+  }
+
+  .section-lg {
+    padding: 80px 0;
+  }
+
+  .section-xl {
+    padding: 95px 0;
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  .section-sm {
+    padding: 60px 0;
+  }
+
+  .section-md {
+    padding: 95px 0;
+  }
+
+  .section-md-alternate {
+    padding-bottom: 60px;
+  }
+
+  .section-md-top {
+    padding-top: 95px;
+  }
+
+  .section-md-bottom {
+    padding-bottom: 30px;
+  }
+
+  .section-lg {
+    padding: 100px 0;
+  }
+
+  .section-xl {
+    padding: 130px 0;
+  }
+}
+
+@media (min-width: $screen-lg-min) and (min-height: $screen-height-desktop) {
+  .section-lg {
+    padding: 120px 0;
+  }
+
+  .section-xl {
+    padding: 150px 0;
+  }
+}
+
+// Elements
+// -------------------------
+
+* + h1,
+* + .h1 {
+}
+
+* + h2,
+* + .h2 {
+}
+
+* + h3,
+* + .h3 {
+}
+
+* + h4,
+* + .h4 {
+  margin-top: 40px;
+
+  &.header-lighter {
+    margin-top: 12px;
+  }
+}
+
+* + h5,
+* + .h5 {
+}
+
+* + h6,
+* + .h6 {
+}
+
+h1 + p,
+.h1 + p {
+  margin-top: 5px;
+}
+
+h2 + p,
+.h2 + p {
+  margin-top: 10px;
+}
+
+h3 + p,
+.h3 + p {
+}
+
+h4 + p,
+.h4 + p {
+  margin-top: 10px;
+}
+
+h5 + p,
+.h5 + p {
+  margin-top: 14px;
+}
+
+h6 + p,
+.h6 + p {
+}
+
+* + p,
+* + .p {
+  margin-top: 20px;
+}
+
+* + .h7 {
+  margin-top: 20px;
+}
+
+* + .big {
+  margin-top: 8px;
+}
+
+* + .large {
+  margin-top: 10px;
+}
+
+* + .btn {
+  margin-top: 22px;
+}
+
+* + .btn.btn-offset-medium {
+  margin-top: 20px;
+}
+
+* + .btn.btn-offset-small {
+  margin-top: 14px;
+}
+
+* + .mark-bigger {
+  margin-top: 12px;
+}
+
+* + .marked-list,
+* + .ordered-list {
+  margin-top: 12px;
+}
+
+* + .marked-list-2 {
+  margin-top: 15px;
+}
+
+* + .quote-primary {
+  margin-top: 23px;
+}
+
+* + .range {
+  margin-top: 30px;
+}
+
+* + .rd-mailform,
+* + .contact-box {
+  margin-top: 40px;
+}
+
+* + .form-inline {
+  margin-top: 35px;
+}
+
+* + .figure-lighter {
+  margin-top: 30px;
+}
+
+.text-decoration-lines + * {
+  margin-top: 25px;
+}
+
+* + .group-xs {
+  margin-top: 15px;
+}
+
+* + .group-sm {
+  margin-top: 35px;
+}
+
+* + .group-xl {
+  margin-top: 30px;
+}
+
+* + .privacy-link {
+  margin-top: 30px;
+}
+
+* + .list-bars {
+  margin-top: 25px;
+}
+
+* + .inline-list-sm {
+  margin-top: 22px;
+}
+
+* + .inline-list-xs {
+  margin-top: 20px;
+}
+
+* + .inline-list-lg {
+  margin-top: 20px;
+}
+
+* + .box-cta {
+  margin-top: 30px;
+}
+
+* + .tabs-line {
+  margin-top: 35px;
+}
+
+* + .list-md {
+  margin-top: 35px;
+}
+
+p + p {
+  margin-top: 16px;
+}
+
+p + .group-sm {
+  margin-top: 15px;
+}
+
+img + h4,
+img + .h4 {
+  margin-top: 30px;
+}
+
+h4 + .checkbox-inline,
+.h4 + .checkbox-inline {
+  margin-top: 15px;
+}
+
+.checkbox + h4,
+.checkbox + .h4 {
+  margin-top: 30px;
+}
+
+.h7 + .rd-mailform {
+  margin-top: 25px;
+}
+
+.shell + .shell {
+  margin-top: 45px;
+}
+
+html {
+  * + .offset-custom-1 {
+    margin-top: 40px;
+  }
+}
+
+@media (min-width: $screen-xs-min) {
+  * + .btn {
+    margin-top: 30px;
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  * + h4,
+  * + .h4 {
+    margin-top: 55px;
+  }
+
+  * + .big {
+    margin-top: 12px;
+  }
+
+  * + .btn {
+    margin-top: 50px;
+  }
+
+  * + .figure-lighter {
+    margin-top: 40px;
+  }
+
+  * + .group-xl {
+    margin-top: 50px;
+  }
+
+  * + .form-inline {
+    margin-top: 50px;
+  }
+
+  * + .list-bars {
+    margin-top: 40px;
+  }
+
+  * + .inline-list-lg {
+    margin-top: 10px;
+  }
+
+  * + .h7 {
+    margin-top: 10px;
+  }
+
+  * + .tabs-line {
+    margin-top: 20px;
+  }
+
+  .shell + .shell {
+    margin-top: 70px;
+  }
+}
+
+@media (min-width: $screen-md) {
+  h2 + p,
+  .h2 + p {
+    margin-top: 23px;
+  }
+
+  h4 + p,
+  .h4 + p {
+    margin-top: 13px;
+  }
+
+  * + .range {
+    margin-top: 50px;
+  }
+}
+
+@media (min-width: $screen-lg-min) {
+  * + .big {
+    margin-top: 24px;
+  }
+
+  .shell + .shell {
+    margin-top: 100px;
+  }
+
+  * + .marked-list-2 {
+    margin-top: 32px;
+  }
+}
+
+@media (min-width: $screen-xl) {
+  * + .offset-xl-top-10 {
+    margin-top: 10px;
+  }
+}

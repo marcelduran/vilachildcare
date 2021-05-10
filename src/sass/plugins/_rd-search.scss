@@ -1,0 +1,181 @@
+//
+// Search Results
+// --------------------------------------------------
+
+// Base styles
+// --------------------------------------------------
+
+.search_list {
+  text-align: left;
+  padding-left: 0;
+  font-size: 18px;
+  list-style-type: none;
+  overflow: hidden;
+
+  li div {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    white-space: nowrap;
+  }
+
+  li:only-child::before {
+    display: none;
+  }
+}
+
+.result-item {
+  font-size: $font-size-base;
+  color: $gray-darker;
+}
+
+.result-item + .result-item {
+  margin-top: 40px;
+}
+
+.search_title {
+  color: $gray-base;
+}
+
+.search {
+  color: $white;
+  padding: 0 .25em;
+  background: $brand-primary;
+}
+
+#rd-search-results-live {
+  #search-results {
+    background: $white;
+    box-shadow: $shadow-area-xs;
+    border-top: 1px solid $gray;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.33s all ease-in;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+    &.active {
+      visibility: visible;
+      opacity: 1;
+    }
+    .result-item {
+      padding-left: 15px;
+    }
+
+    p.match {
+      font-size: 14px;
+      letter-spacing: 0;
+
+      em {
+        display: block;
+      }
+    }
+    .result-item {
+      + .result-item {
+        margin-top: 20px;
+      }
+    }
+    .search_all {
+      margin-top: 20px;
+      a {
+        &:hover {
+          color: $brand-primary;
+        }
+      }
+    }
+  }
+}
+
+// RD Search results
+//
+.rd-search-results {
+  .match {
+    font: 400 14px $font-family-base;
+    color: $nobel;
+  }
+
+  .search_list {
+    counter-reset: li;
+  }
+
+  .result-item {
+    position: relative;
+    padding-left: 40px;
+    &:before {
+      position: absolute;
+      left: 0;
+      top: 2px;
+      content: counter(li, decimal-leading-zero) '.';
+      counter-increment: li;
+      color: $nobel;
+    }
+  }
+
+  * + .match {
+    margin-top: 2px;
+  }
+
+  * + p {
+    margin-top: 16px;
+  }
+
+  @media (min-width: $screen-sm-min) {
+    .result-item {
+      padding-left: 50px;
+
+      &:before {
+        top: 3px;
+      }
+    }
+
+    .result-item + .result-item {
+      margin-top: 50px;
+    }
+  }
+}
+
+* + .rd-search-results {
+  margin-top: 40px;
+}
+
+@media (min-width: $screen-sm-min) {
+  * + .rd-search-results {
+    margin-top: 55px;
+  }
+}
+
+// Form search classic
+//
+.search-form-classic {
+  position: relative;
+
+  .form-control {
+    padding-right: 66px;
+  }
+
+  .rd-search-submit {
+    @include reset-button;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    @include display-flex;
+    @include flex-direction(row);
+    @include flex-wrap(nowrap);
+    @include align-items(center);
+    @include justify-content(center);
+    width: 55px;
+    text-align: center;
+
+    &:before {
+      content: '\e8b6';
+      font: 400 24px/28px 'Material Icons';
+      transition: .33s all ease;
+      color: $manatee;
+    }
+
+    &:hover:before {
+      color: $gray-base;
+    }
+  }
+}

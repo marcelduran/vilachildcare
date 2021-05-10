@@ -1,0 +1,296 @@
+//
+// Isotope
+// --------------------------------------------------
+
+$isotope-default-color: $gray;
+$isotope-default-color-active: $white;
+$isotope-default-border: $isotope-default-color-active;
+$isotope-nav-spacing: 5px;
+
+$isotope-inverse-color: $white;
+$isotope-inverse-color-active: $brand-primary;
+$isotope-inverse-border: $isotope-inverse-color-active;
+
+$isotope-default-item-offset: 30px;
+
+[data-isotope-layout] {
+  position: relative;
+  @include transform(translateY(-$isotope-default-item-offset));
+  display: block;
+  margin-bottom: -$isotope-default-item-offset;
+  transition: .4s all ease;
+  min-height: 160px;
+
+  &:after {
+    content: '';
+    position: absolute;
+    margin-top: $isotope-default-item-offset / 2;
+    width: 64px;
+    height: 64px;
+    top: 50%;
+    left: 50%;
+    background-image: url("../images/isotope-loader.png");
+    background-position: -1152px 0;
+    animation: 0.7s sprite-animation steps(18) infinite;
+    transition: .4s all ease;
+    @include transform(translate(-50%, -50%));
+  }
+
+  [class*="col-"] {
+    display: block;
+    margin-top: $isotope-default-item-offset;
+    opacity: 0;
+    transition: .4s opacity ease;
+  }
+
+  &.isotope--loaded {
+    [class*="col-"] {
+      opacity: 1;
+    }
+
+    &:after {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}
+
+// Isotope filters common styles
+.isotope-filters {
+  $value: 10px;
+
+  > * {
+    margin-top: 0;
+    vertical-align: middle;
+  }
+
+  .inline-list {
+    position: relative;
+    @include transform(translateY(-$value));
+    margin: 0;
+
+    li {
+      display: inline-block;
+      margin-top: $value;
+    }
+
+    a {
+      position: relative;
+      transition: .3s;
+      color: $text-color;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .075em;
+    }
+  }
+
+  @media (min-width: $screen-md-min) {
+    .isotope-filters-trigger {
+      display: none;
+    }
+  }
+}
+
+// Isotope filters
+.isotope-filters {
+  .inline-list {
+    > li {
+      padding: 0;
+    }
+  }
+
+  @media (min-width: $screen-md-min) {
+    .inline-list {
+      word-spacing: 0;
+
+      > li:not(:last-child) {
+        margin-right: $isotope-nav-spacing;
+      }
+
+      a {
+        border: 2px solid #e5e7e9;
+        padding: 12px 20px 12px;
+
+        &,
+        &::before {
+          transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: -1px;
+          left: -1px;
+          width: calc(100% + 2px);
+          height: calc(100% + 2px);
+          background: #fff;
+          z-index: -1;
+          opacity: 0;
+          @include transform(scale3d(0.7, 1, 1));
+          transition: transform 0.4s, opacity 0.4s;
+          transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+          background: $tabs-corporate-active-background;
+        }
+
+        &,
+        &:active,
+        &:focus {
+          color: $isotope-default-color;
+        }
+
+        &:hover,
+        &.active {
+          color: $isotope-default-color-active;
+          border-color: $brand-primary;
+
+          &::before {
+            opacity: 1;
+            @include transform(translate3d(0, 0, 0) scale3d(1, 1, 1));
+          }
+        }
+      }
+    }
+  }
+}
+
+// Mobile version of filters
+.isotope-filters-responsive {
+  position: relative;
+  z-index: 10;
+
+  *:focus {
+    outline: none;
+  }
+
+  @media (max-width: $screen-xs-max) {
+    max-width: 370px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: $screen-sm-max) {
+    vertical-align: middle;
+
+    .isotope-filters-toggle {
+      padding: 8px 15px;
+
+      .caret {
+        margin-left: 5px;
+      }
+    }
+
+    > li {
+      position: relative;
+      vertical-align: middle;
+      padding: 0;
+    }
+
+    > li:first-child {
+      margin-right: 8px;
+    }
+
+    > li + li {
+      margin-top: 8px;
+    }
+
+    .isotope-filters {
+      position: absolute;
+      top: 49px;
+      left: 50%;
+      @include transform(translateX(-50%));
+      z-index: 10;
+      width: 200px;
+      padding: 15px;
+      background: $white;
+      border-radius: 3px;
+      text-align: left;
+      visibility: hidden;
+      opacity: 0;
+      transition: .33s all ease;
+      border: 1px solid darken($white, 5%);
+
+      &.active {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .inline-list {
+        width: 100%;
+      }
+
+      .inline-list a {
+        display: inline-block;
+        width: 100%;
+        padding: 3px 8px;
+        font-size: 12px;
+        color: $gray-base;
+        border: 0;
+        background-color: transparent;
+
+        &.active,
+        &:hover {
+          color: $brand-secondary-2;
+          background-color: rgba($brand-secondary-2, .1);
+        }
+      }
+
+      li {
+        display: block;
+        width: 100%;
+      }
+
+      li + li {
+        margin-top: 6px;
+      }
+    }
+
+    @media (min-width: $screen-xs-min) {
+      .isotope-filters {
+        left: 0;
+        @include transform(none);
+      }
+
+      > li {
+        display: inline-block;
+        margin: 0;
+      }
+
+      > li + li {
+        margin-top: 0;
+      }
+    }
+
+    @media (min-width: $screen-sm-min) {
+      .isotope-filters {
+        width: 250px;
+        .inline-list a {
+          padding: 5px 10px;
+        }
+      }
+    }
+  }
+
+  @media (min-width: $screen-md-min) {
+    > li:first-child {
+      display: none;
+    }
+  }
+}
+
+* + .isotope,
+* + .isotope-filters-responsive {
+  margin-top: 40px;
+}
+
+.isotope-filters-toggle {
+  display: block;
+  border: 0;
+  outline: 0;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (min-width: $screen-md-min) {
+    display: none;
+  }
+}

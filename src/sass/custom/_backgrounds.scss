@@ -1,0 +1,229 @@
+//
+// Backgrounds
+// --------------------------------------------------
+@mixin bg-behaviour($bg-color) {
+  background-color: $bg-color;
+
+  & + & {
+    padding-top: 0;
+  }
+
+  .bg-decoration > svg {
+    fill: $bg-color;
+  }
+}
+
+// Bg colors
+//
+%context-dark {
+  color: $white;
+
+  #{headings()} {
+    color: $headings-color-inverse;
+  }
+
+  .rd-mailform {
+    .form-control {
+      background: rgba($white, .47);
+    }
+
+    .form-control,
+    .form-label,
+    .form-label-outside,
+    .form-validation {
+      color: $white;
+    }
+  }
+
+  .counter-box {
+    &,
+    .counter-box-header {
+      color: $white;
+    }
+  }
+
+  .counter-box-bold {
+    .counter,
+    .counter-box-header {
+      color: $white;
+    }
+  }
+
+  .link {
+    @include link(inherit, $brand-primary);
+  }
+
+  .owl-carousel {
+    .owl-prev,
+    .owl-next {
+
+      &:hover {
+        opacity: .5;
+      }
+    }
+
+    .owl-prev {
+      &,
+      &:hover {
+        border-color: transparent transparent $white $white;
+      }
+    }
+
+    .owl-next {
+      &,
+      &:hover {
+        border-color: $white $white transparent transparent;
+      }
+    }
+
+    .owl-dot {
+      background: $white;
+
+      &.active {
+        background: $brand-primary;
+      }
+    }
+  }
+
+  .rd-mailform {
+    .select2-container--bootstrap .select2-selection {
+      color: $gray-darker;
+      background: $white;
+    }
+
+    .select2-container .select2-selection--single .select2-selection__rendered {
+      color: $gray-darker;
+    }
+  }
+
+  hr {
+    border-color: #434d52;
+  }
+
+  .terms-list-uppercase {
+    dd {
+      color: $white;
+    }
+  }
+
+  .range-custom-bordered-small {
+    .cell-bordered:after {
+      border-color: rgba($white, .22);
+    }
+  }
+}
+
+%context-light {
+  color: $text-color;
+  #{headings()} {
+    color: $headings-color;
+  }
+}
+
+.context-dark {
+  @extend %context-dark;
+}
+
+.context-light {
+  @extend %context-light;
+}
+
+.bg-white {
+  @include bg-behaviour($white);
+}
+
+.bg-gray-dark {
+  @extend %context-dark;
+  @include bg-behaviour($gray-dark);
+
+  &:not(.bg-image) .rd-mailform {
+    .form-control {
+      background: #444c50;
+    }
+  }
+}
+
+.bg-primary {
+  @extend %context-dark;
+  @include bg-behaviour($olive);
+
+  .range-custom-bordered {
+    [class*='cell'] {
+      border-color: rgba(#2c775e, .2);
+    }
+  }
+}
+
+.bg-gray-light {
+  @include bg-behaviour($gray-light);
+
+  .progress-variant-primary {
+    .progress {
+      background: $white;
+    }
+  }
+
+  .post-boxed {
+    background: $white;
+  }
+
+  .thumbnail-variant-1 {
+    background: $white;
+    .thumbnail-body,
+    .thumbnail-body:before {
+      background: inherit;
+    }
+  }
+
+  .quote-boxed-body,
+  .quote-boxed-body:before {
+    background: $white;
+  }
+}
+
+// Bg image
+//
+.bg-image {
+  background-size: cover;
+  background-position: center 55%;
+  background-repeat: no-repeat;
+}
+
+.bg-fixed {
+  .desktop & {
+    @media (min-width: $screen-md-min) {
+      background-attachment: fixed;
+    }
+  }
+}
+
+// Bg decorated
+//
+.bg-decorated {
+  position: relative;
+  z-index: 10;
+}
+
+.bg-decoration {
+  position: absolute;
+  left: 0;
+  right: 0;
+  font-size: 0;
+  line-height: 0;
+
+  &-top {
+    top: 1px;
+    transform: translateY(-100%);
+  }
+
+  &-bottom {
+    bottom: 1px;
+    transform: translateY(100%);
+  }
+
+  svg {
+    min-width: 1000px;
+    width: 100%;
+    fill: $white;
+  }
+}

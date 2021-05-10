@@ -1,0 +1,258 @@
+// Quotes custom
+
+// Reset styles
+blockquote {
+  font: inherit;
+  padding: 0;
+  margin: 0;
+  border: 0;
+
+  q {
+    &:before,
+    &:after {
+      content: none;
+    }
+  }
+  cite {
+    font-style: normal;
+  }
+
+  small,
+  .small {
+    &:before {
+      display: none;
+    }
+  }
+}
+
+// Quote primary
+//
+.quote-primary {
+  cite {
+    @include header-base-styles;
+    @include header-h5;
+  }
+
+  q {
+    color: $gray-darker;
+  }
+}
+
+.quote-primary-mark {
+  position: relative;
+  top: 6px;
+  display: block;
+  @include flex-shrink(0);
+
+  img {
+    max-width: 42px;
+    height: auto;
+  }
+}
+
+.quote-primary-body {
+  position: relative;
+}
+
+.quote-primary-text {
+  padding-top: 20px;
+  font-size: 25px;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.quote-primary-footer {
+  padding-left: 5px;
+}
+
+* + .quote-primary-footer {
+  margin-top: 8px;
+}
+
+@media (min-width: $screen-xs-min) {
+  .quote-primary-body {
+    @include display-flex;
+    @include flex-direction(row);
+    @include flex-wrap(nowrap);
+    @include align-items(center);
+  }
+
+  .quote-primary-text {
+    padding-top: 0;
+    padding-left: 10px;
+    border-left: 1px solid $silver;
+    margin-left: 10px;
+  }
+
+  .quote-primary-footer {
+    padding-left: 30px;
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  .quote-primary-body {
+    padding-right: 10px;
+  }
+
+  .quote-primary-text {
+    font-size: 25px;
+    margin-left: 25px;
+    padding-left: 30px;
+  }
+}
+
+// Quote boxed
+//
+.quote-boxed {
+  box-shadow: $shadow-area-md-1;
+
+  cite {
+    @include header-base-styles;
+    @include header-h4;
+    letter-spacing: 0.05em;
+  }
+
+  q {
+    font-style: italic;
+    letter-spacing: 0;
+    color: $gray;
+  }
+
+  .caption {
+    margin-top: 0;
+    font: 700 14px $font-family-base;
+    line-height: 1.1;
+    color: $brand-secondary-2;
+  }
+}
+
+.quote-boxed-image {
+  width: 100%;
+  height: auto;
+}
+
+.quote-boxed-body {
+  position: relative;
+  padding: 25px 15px 30px 15px;
+  background: $white;
+  text-align: left;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: -10px;
+    @include transform(translateX(-50%) rotate(-45deg));
+    width: 20px;
+    height: 20px;
+    background: $white;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  > * {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.quote-boxed-meta {
+  color: $gray-darker;
+}
+
+.quote-boxed-meta-list {
+  @include display-flex;
+  @include flex-direction(row);
+  @include align-items(center);
+
+  > li {
+    min-width: 70px;
+  }
+
+  > li + li {
+    position: relative;
+    margin-left: 20px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: -20px;
+      height: 16px;
+      width: 1px;
+      background: #e5e7e9;
+    }
+  }
+
+  li:nth-child(2) {
+    top: 2px;
+  }
+}
+
+* + .quote-boxed-meta {
+  margin-top: 20px;
+}
+
+.quote-boxed + .quote-boxed {
+  margin-top: 30px;
+}
+
+@media (max-width: $screen-xs-max) {
+  .quote-boxed {
+    max-width: 370px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: $screen-xs-min) {
+  .quote-boxed-body {
+    padding: 30px 40px 40px 40px;
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  .quote-boxed {
+    @include display-flex;
+    @include flex-direction(row);
+    @include flex-wrap(nowrap);
+    @include align-items(stretch);
+    @include justify-content(space-between);
+  }
+
+  .quote-boxed-left {
+    position: relative;
+    overflow: hidden;
+    @include flex-shrink(0);
+    width: calc(50% - 5px);
+  }
+
+  .quote-boxed-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
+    height: auto;
+    width: auto;
+    min-width: 101%;
+    max-width: none;
+    min-height: 101%;
+  }
+
+  .quote-boxed-body {
+    padding: 40px 30px 50px 30px;
+    @include flex-grow(1);
+
+    &:before {
+      top: 50%;
+      @include transform(translateY(-50%) rotate(-45deg));
+      left: -10px;
+    }
+  }
+}
+
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+  .quote-boxed-body {
+    padding: 20px 25px 20px 20px;
+  }
+}

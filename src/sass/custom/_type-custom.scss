@@ -1,0 +1,305 @@
+//
+// Custom typography
+// --------------------------------------------------
+
+// Page
+// -------------------------
+
+.page {
+  overflow: hidden;
+}
+
+// Page header
+// -------------------------
+
+.page-header {
+  padding: 0;
+  margin: 0;
+  border-bottom: none;
+}
+
+// Fonts
+// -------------------------
+
+.font-default {
+  font-family: $font-family-base;
+}
+
+// Basic Typography
+// -------------------------
+@mixin header-base-styles {
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight;
+  letter-spacing: 0;
+  color: $headings-color;
+}
+
+#{headings()} {
+  margin-top: 0;
+  margin-bottom: 0;
+  @include header-base-styles;
+
+  a {
+    display: inline;
+    font: inherit;
+    letter-spacing: inherit;
+    @include link(inherit, $link-hover-color);
+  }
+
+  &.mark {
+    display: inline-block;
+  }
+
+  .icon {
+    font-size: .95em;
+  }
+
+  > * {
+    display: inline-block;
+  }
+}
+
+// {0 - 768px} <= 40px
+// {768px - 992px} <= 62px
+@mixin header-h1 {
+  font-size: 34px;
+  line-height: 1.2;
+  letter-spacing: 0;
+
+  @media (min-width: $screen-sm-min) {
+    font-size: 56px;
+    line-height: $font-lh-h1;
+  }
+
+  @media (min-width: $screen-md-min) {
+    font-size: 78px;
+  }
+
+  @media (min-width: $screen-lg-min) {
+    font-size: $font-size-h1;
+  }
+}
+
+// {0 - 768px} <= 36px
+// {768px - 992px} <= 52px
+@mixin header-h2 {
+  font-size: 22px;
+  line-height: 1.3;
+  letter-spacing: 0;
+
+  @media (min-width: $screen-sm-min) {
+    font-size: 28px;
+    line-height: $font-lh-h2;
+  }
+
+  @media (min-width: $screen-lg-min) {
+    font-size: $font-size-h2;
+  }
+}
+
+// {0 - 768px} <= 32px
+// {768px - 992px} <= 44px
+@mixin header-h3 {
+  font-size: 20px;
+  line-height: 1.45;
+  letter-spacing: 0;
+
+  @media (min-width: $screen-sm-min) {
+    font-size: 22px;
+  }
+
+  @media (min-width: $screen-lg-min) {
+    font-size: $font-size-h3;
+    line-height: $font-lh-h3;
+  }
+}
+
+// {0 - 768px} <= 26px
+// {768px - 992px} <= 36px
+@mixin header-h4 {
+  font-size: 18px;
+  line-height: 1.35;
+  letter-spacing: 0;
+
+  @media (min-width: $screen-sm-min) {
+    font-size: 20px;
+  }
+
+  @media (min-width: $screen-lg-min) {
+    font-size: $font-size-h4;
+    line-height: $font-lh-h4;
+  }
+}
+
+// {0 - 768px} <= 22px
+// {768px - 992px} <= 28px
+@mixin header-h5 {
+  font-size: $font-size-h5;
+  line-height: $font-lh-h5;
+}
+
+// {0 - 768px} <= 18px
+// {768px - 992px} <= 22px
+@mixin header-h6 {
+  font-family: $font-family-base;
+  font-size: $font-size-h6;
+  font-weight: 700;
+  line-height: $font-lh-h6;
+}
+
+h1, .h1 {
+  @include header-h1;
+}
+
+h2, .h2 {
+  @include header-h2;
+}
+
+h3, .h3 {
+  @include header-h3;
+}
+
+h4, .h4 {
+  @include header-h4;
+}
+
+h5, .h5 {
+  @include header-h5;
+}
+
+h6, .h6 {
+  @include header-h6;
+}
+
+.h7 {
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+.h3-alternate {
+  @include header-base-styles;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 1.45;
+  text-transform: uppercase;
+
+  @media (min-width: $screen-sm-min) {
+    font-size: 22px;
+  }
+
+  @media (min-width: $screen-lg-min) {
+    font-size: $font-size-h3;
+    line-height: $font-lh-h3;
+  }
+}
+
+.h4-alternate {
+  color: $headings-color;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+
+  @media (min-width: $screen-sm-min) {
+    font-size: 22px;
+  }
+
+  @media (min-width: $screen-lg-min) {
+    font-size: 24px;
+  }
+}
+
+.header-lighter {
+  font-family: $font-family-sec;
+  font-weight: 400;
+  text-transform: none;
+}
+
+code {
+  padding: 5px 7px;
+  font-size: 75%;
+  color: $brand-primary;
+  background-color: $white;
+}
+
+mark,
+.mark {
+  line-height: 1.04;
+  padding: .15em .4em .1em;
+  color: $white;
+  background: $brand-primary;
+}
+
+.mark-spacing-1 {
+  padding: .4em .5em .4em;
+}
+
+.mark-spacing-2 {
+  padding: .2em .6em .14em;
+}
+
+@media (min-width: $screen-xs) {
+  .big {
+    font-size: $font-size-large;
+    line-height: floor(($font-size-large * $line-height-large));
+  }
+}
+
+small,
+.small {
+  font-size: $font-size-small;
+  line-height: floor(($font-size-small * $line-height-small));
+}
+
+.large {
+  font-size: 16px;
+
+  @media (min-width: $screen-sm-min) {
+    font-size: 18px;
+  }
+}
+
+code {
+  padding: 5px 7px;
+  font-size: 75%;
+  color: $brand-danger;
+  background-color: $gray-lighter;
+  border-radius: 2px;
+}
+
+[data-toggle='tooltip'] {
+  display: inline-block;
+  color: $nobel;
+}
+
+.tooltip {
+  font-size: $font-size-base;
+
+  &.top .tooltip-arrow {
+    bottom: 1px;
+  }
+}
+
+// Colors
+// -------------------------
+
+.page {
+  .text-primary {
+    color: $brand-primary;
+  }
+
+  .text-dark {
+    color: $gray-dark;
+  }
+
+  .text-gray {
+    color: $gray;
+  }
+
+  .text-gray-darker {
+    color: $gray-darker;
+  }
+
+  .text-white {
+    color: $white;
+  }
+}

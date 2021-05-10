@@ -1,0 +1,53 @@
+//
+// Page title
+// --------------------------------------------------
+.page-title {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+  background-color: #1b181d;
+  background-image: url(../images/bg-breadcrumb-1.jpg);
+}
+
+.desktop {
+  @media (min-width: $screen-md-min) {
+    .page-title {
+      background-attachment: fixed;
+    }
+  }
+}
+
+.page-title-text {
+  padding: 30px 15px;
+  @include header-base-styles;
+  font-size: 28px;
+  line-height: 1.2;
+  color: $white;
+
+  .rd-navbar-sidebar-linked & {
+    padding: 50px 15px;
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  .page-title-text {
+    font-size: 42px;
+  }
+}
+
+
+@media (min-width: $screen-md-min) {
+  .page-title-text {
+    padding: 70px 15px;
+    font-size: 48px;
+
+    .rd-navbar-sidebar-linked & {
+      padding: 164px 15px 105px;
+    }
+  }
+
+}

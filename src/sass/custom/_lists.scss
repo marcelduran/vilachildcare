@@ -1,0 +1,402 @@
+//
+// Lists
+// --------------------------------------------------
+
+// Mixins
+//
+@mixin inline-list($x, $y: $x) {
+  @include spacing($x, $y);
+  > * {
+    display: inline-block;
+  }
+}
+
+// Reset styles
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    display: block;
+  }
+}
+
+// Description Lists
+dl {
+  margin: 0;
+}
+
+dt {
+  font-weight: inherit;
+}
+
+// Default list
+.list-0 {
+  line-height: 1.25;
+
+  > li + li {
+    margin-top: 0;
+  }
+}
+
+.list {
+  > li + li {
+    margin-top: 5px;
+  }
+}
+
+.list-xxs {
+  li {
+    line-height: 1;
+  }
+
+  a {
+    line-height: 1.2;
+  }
+
+  > li + li {
+    margin-top: 6px;
+  }
+}
+
+.list-md {
+  > li + li {
+    margin-top: 25px;
+  }
+}
+
+.list-xl {
+  > li + li {
+    margin-top: 40px;
+  }
+}
+
+@media (min-width: $screen-lg-min) {
+  .list-xl {
+    > li + li {
+      margin-top: 90px;
+    }
+  }
+}
+
+// Inline list
+//
+.inline-list-xxs {
+  @include inline-list(5px, 8px);
+}
+
+.inline-list-xs {
+  @include inline-list(15px, 18px);
+}
+
+.inline-list-sm {
+  @include inline-list(19px, 8px);
+}
+
+.inline-list-md {
+  @include inline-list(25px, 8px);
+}
+
+.inline-list-lg {
+  @include inline-list(32px, 8px);
+}
+
+// Terms list
+//
+
+.terms-list {
+  text-align: left;
+
+  dt {
+    @include header-base-styles;
+    @include header-h4;
+  }
+
+  dt + dd {
+    margin-top: 10px;
+  }
+
+  dd + dt {
+    margin-top: 30px;
+  }
+}
+
+@media (min-width: $screen-lg-min) {
+  .terms-list {
+    dd + dt {
+      margin-top: 50px;
+    }
+  }
+}
+
+.terms-list-inline {
+  vertical-align: middle;
+
+  dt,
+  dd {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  dt {
+    &:after {
+      content: ':';
+    }
+  }
+}
+
+.terms-list-uppercase {
+  @include display-flex;
+  @include flex-direction(row);
+  @include flex-wrap(nowrap);
+  @include align-items(flex-start);
+
+  dt,
+  dd {
+    display: inline-block;
+  }
+
+  dt {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $manatee;
+    min-width: 100px;
+  }
+
+  dd {
+    color: $gray-base;
+  }
+
+  @media (min-width: $screen-sm-min) {
+    dt {
+      min-width: 160px;
+    }
+  }
+}
+* + .terms-list-uppercase {
+  margin-top: 35px;
+}
+
+.terms-list-uppercase + .terms-list-uppercase {
+  margin-top: 10px;
+}
+
+@media (min-width: $screen-sm-min) {
+  .terms-list-uppercase + .terms-list-uppercase {
+    margin-top: 18px;
+  }
+}
+
+// Index list
+//
+
+.index-list {
+  counter-reset: li;
+
+  > li {
+    .list-index-counter {
+      &:before {
+        content: counter(li, decimal-leading-zero);
+        counter-increment: li;
+      }
+    }
+  }
+}
+
+// Marked list
+//
+
+.marked-list {
+  > li {
+    position: relative;
+    padding-left: 25px;
+    font: 400 14px/24px $font-family-base;
+    color: $gray-darker;
+
+    &:before {
+      position: absolute;
+      top: -1px;
+      left: 0;
+      content: '\f105';
+      font: 400 16px/24px $fa;
+      color: $nobel;
+    }
+
+    a {
+      @include link(inherit, $brand-primary);
+    }
+  }
+
+  > li + li {
+    margin-top: 10px;
+  }
+}
+
+.marked-list-2 {
+  > li {
+    position: relative;
+    padding-left: 30px;
+    font: 400 14px/24px $font-family-base;
+    color: $gray-darker;
+
+    &:before {
+      position: absolute;
+      top: 1px;
+      left: 0;
+      content: '\e005';
+      font: 400 13px/24px $fl-flat;
+      color: $jordy-blue;
+    }
+  }
+
+  > li + li {
+    margin-top: 10px;
+  }
+}
+
+.marked-list-gray-darker {
+  > li {
+    color: $gray-dark;
+  }
+}
+
+// Ordered list
+//
+
+.ordered-list {
+  counter-reset: li;
+  li {
+    position: relative;
+    padding-left: 25px;
+    font: 400 14px/24px $font-family-base;
+    color: $gray-darker;
+
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: inline-block;
+      width: 15px;
+      content: counter(li, decimal) '.';
+      counter-increment: li;
+      color: $nobel;
+    }
+  }
+
+  li + li {
+    margin-top: 10px;
+  }
+}
+
+// List bold
+//
+
+.list-bold {
+  > li {
+    font: 700 16px $font-family-sec;
+    color: $shark;
+    > a {
+      @include link(inherit, $brand-primary);
+    }
+  }
+
+  > li + li {
+    margin-top: 8px;
+  }
+
+  @media (min-width: $screen-sm-min) {
+    > li {
+      font-size: 18px;
+    }
+
+    > li + li {
+      margin-top: 15px;
+    }
+  }
+}
+
+// List nav
+//
+
+.list-nav {
+  @include spacing(20px, 5px);
+
+  @media (max-width: $screen-xs-max) {
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  li {
+    display: inline-block;
+  }
+
+  a {
+    @include link(inherit, $white);
+  }
+
+  li.active {
+    pointer-events: none;
+    color: $white;
+  }
+
+  @media (min-width: $screen-sm-min) {
+    @include spacing(38px, 5px);
+  }
+}
+
+.list-nav-marked {
+  text-align: left;
+  > li {
+    position: relative;
+    padding-left: 15px;
+    font-size: 14px;
+    color: $text-color;
+
+    &:before {
+      content: '\f105';
+      font-family: $fa;
+      position: absolute;
+      top: -1px;
+      left: 0;
+      font-size: 16px;
+      line-height: inherit;
+      color: $brand-primary;
+      transition: .22s;
+    }
+
+    a {
+      @include link(inherit, $brand-primary);
+    }
+  }
+
+  > li:hover:before {
+    left: 5px;
+  }
+}
+
+// List bars
+//
+.list-bars {
+  text-align: left;
+
+  li {
+    display: block;
+  }
+
+  > li + li {
+    margin-top: 25px;
+  }
+
+  * + .progress {
+    margin-top: 5px;
+  }
+}
+
+.list-bars-item-header {
+  color: $gray;
+  text-transform: uppercase;
+}

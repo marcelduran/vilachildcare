@@ -1,0 +1,66 @@
+//
+// Scaffolding
+// --------------------------------------------------
+// Body reset
+body {
+  -webkit-text-size-adjust: none;
+  -webkit-font-smoothing: subpixel-antialiased;
+  font-family: $font-family-base;
+  font-weight: $font-weight-base;
+  letter-spacing: .002em;
+}
+
+// Page styles
+// --------------------------------------------------
+
+.page {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh!important;
+  background-color: $content-bg;
+}
+
+// Links
+a {
+  display: inline-block;
+  text-decoration: none;
+  transition: $transition-md;
+
+  &,
+  &:active,
+  &:focus {
+    color: $link-color;
+  }
+
+  &:hover,
+  &:focus {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
+
+  &[href*='callto'],
+  &[href*='mailto'] {
+    white-space: nowrap;
+  }
+}
+
+// Horizontal rules
+
+hr {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-top: 1px solid $hr-border;
+}
+
+.img-responsive {
+  width: 100%;
+  height: auto;
+}
+
+.brand-sm {
+  img {
+    width: 100%;
+    max-width: 153px;
+    height: auto;
+  }
+}
