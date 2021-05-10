@@ -185,7 +185,7 @@
                 <div class="page-footer-corporate-top">
                   <h3>Get in Touch</h3>
                   <!-- RD Mailform-->
-                  <form class="rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+                  <form class="rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="https://formspree.io/f/mayaeynv">
                     <div class="range range-sm-bottom spacing-20">
                       <div class="cell-sm-6">
                         <div class="form-group">
@@ -207,10 +207,11 @@
                       </div>
                       <div class="cell-sm-6">
                         <div class="form-group">
-                          <input class="form-control" id="footer-contact-email" type="email" name="email" data-constraints="@Email @Required">
+                          <input class="form-control" id="footer-contact-email" type="email" name="_replyto" data-constraints="@Email @Required">
                           <label class="form-label" for="footer-contact-email">E-mail</label>
                         </div>
                       </div>
+                      <input type="hidden" name="_subject" id="email-subject" value="Contact from Vila Child Care Website">
                       <div class="cell-sm-6">
                         <button class="btn btn-primary btn-block btn-effect-ujarak" type="submit">send message</button>
                       </div>
