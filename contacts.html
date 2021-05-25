@@ -71,34 +71,35 @@
             <div class="cell-sm-10 cell-md-6 cell-lg-6">
               <h3>Have Questions?</h3>
               <!-- RD Mailform-->
-              <form class="rd-mailform form-wide" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
-                <div class="range range-sm-bottom spacing-30">
+              <form class="rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="https://formspree.io/f/mayaeynv">
+                <div class="range range-sm-bottom spacing-20">
                   <div class="cell-sm-6">
                     <div class="form-group">
-                      <input class="form-control" id="comment-first-name" type="text" name="name" data-constraints="@Required">
-                      <label class="form-label" for="comment-first-name">Your Name</label>
+                      <input class="form-control" id="footer-contact-first-name" type="text" name="name" data-constraints="@Required">
+                      <label class="form-label" for="footer-contact-first-name">Your Name</label>
                     </div>
                   </div>
                   <div class="cell-sm-6">
                     <div class="form-group">
-                      <input class="form-control" id="comment-surname" type="text" name="surname" data-constraints="@Numeric @Required">
-                      <label class="form-label" for="comment-surname">Phone</label>
+                      <input class="form-control" id="footer-contact-last-name" type="text" name="phone" data-constraints="@Numeric">
+                      <label class="form-label" for="footer-contact-last-name">Phone</label>
                     </div>
                   </div>
                   <div class="cell-xs-12">
                     <div class="form-group">
-                      <textarea class="form-control" id="comment-message" name="message" data-constraints="@Required"></textarea>
-                      <label class="form-label" for="comment-message">Your Message</label>
+                      <textarea class="form-control" id="footer-contact-message" name="message" data-constraints="@Required"></textarea>
+                      <label class="form-label" for="footer-contact-message">Your Message</label>
                     </div>
                   </div>
                   <div class="cell-sm-6">
                     <div class="form-group">
-                      <input class="form-control" id="comment-email" type="email" name="email" data-constraints="@Email @Required">
-                      <label class="form-label" for="comment-email">E-mail</label>
+                      <input class="form-control" id="footer-contact-email" type="email" name="_replyto" data-constraints="@Email @Required">
+                      <label class="form-label" for="footer-contact-email">E-mail</label>
                     </div>
                   </div>
+                  <input type="hidden" name="_subject" id="email-subject" value="Contact from Vila Child Care Website">
                   <div class="cell-sm-6">
-                    <button class="btn btn-secondary-1 btn-effect-ujarak btn-block" type="submit">Send Message</button>
+                    <button class="btn btn-primary btn-block btn-effect-ujarak" type="submit">send message</button>
                   </div>
                 </div>
               </form>
@@ -172,7 +173,7 @@
                 <div class="page-footer-corporate-top">
                   <h3>Get in Touch</h3>
                   <!-- RD Mailform-->
-                  <form class="rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+                  <form class="rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="https://formspree.io/f/mayaeynv">
                     <div class="range range-sm-bottom spacing-20">
                       <div class="cell-sm-6">
                         <div class="form-group">
@@ -194,10 +195,11 @@
                       </div>
                       <div class="cell-sm-6">
                         <div class="form-group">
-                          <input class="form-control" id="footer-contact-email" type="email" name="email" data-constraints="@Email @Required">
+                          <input class="form-control" id="footer-contact-email" type="email" name="_replyto" data-constraints="@Email @Required">
                           <label class="form-label" for="footer-contact-email">E-mail</label>
                         </div>
                       </div>
+                      <input type="hidden" name="_subject" id="email-subject" value="Contact from Vila Child Care Website">
                       <div class="cell-sm-6">
                         <button class="btn btn-primary btn-block btn-effect-ujarak" type="submit">send message</button>
                       </div>
