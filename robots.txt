@@ -1,0 +1,11 @@
+Sitemap: https://vilachildcare.com/sitemap.xml
+
+User-agent: *
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /images/
+Disallow: /js/
+Disallow: /src/
+
+User-agent: Googlebot-Image
+Disallow: /
