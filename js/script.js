@@ -58,6 +58,23 @@ var userAgent = navigator.userAgent.toLowerCase(),
  */
 $document.ready(function () {
 
+  // Detect webp support then fallback to jpeg accordingly.
+  var canvas = document.createElement('canvas');
+  if (canvas.getContext && canvas.getContext('2d') &&
+      canvas.toDataURL('image/webp').indexOf('data:image/webp') < 0) {
+    $('a[href*=".webp"]').each(function(idx, el) {
+      el.href = el.href.replace('.webp', '.jpg');
+    });
+    $('div[data-slide-bg*=".webp"]').each(function(idx, el) {
+      el.dataset.slideBg = el.dataset.slideBg.replace('.webp', '.jpg');
+    });
+    $('div[style*=".webp"],section[style*=".webp"]').each(function(idx, el) {
+      el.style.backgroundImage =
+          el.style.backgroundImage.replace('.webp', '.jpg');
+    });
+    $('body').addClass('nowebp');
+  }
+
   /**
    * getSwiperHeight
    * @description  calculate the height of swiper slider basing on data attr

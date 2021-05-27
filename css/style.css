@@ -27859,6 +27859,10 @@ blockquote .small:before {
   background-image: url(../images/bg-breadcrumb-1.webp);
 }
 
+.nowebp .page-title {
+  background-image: url(../images/bg-breadcrumb-1.jpg);
+}
+
 @media (min-width: 992px) {
   .desktop .page-title {
     background-attachment: fixed;
