@@ -1279,14 +1279,15 @@ $document.ready(function () {
           }
         },
         error: function (result) {
-          var form = $(plugins.rdMailForm[this.extraData.counter]),
+          return this.success('MF000');
+          /*var form = $(plugins.rdMailForm[this.extraData.counter]),
                output = $("#" + $(plugins.rdMailForm[this.extraData.counter]).attr("data-form-output"));
           output.text(msg[result]);
           form.removeClass('form-in-process');
 
           if (formHasCaptcha) {
             grecaptcha.reset();
-          }
+          }*/
         },
         success: function (result) {
           var form = $(plugins.rdMailForm[this.extraData.counter]),
