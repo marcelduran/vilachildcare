@@ -9691,13 +9691,11 @@ h1, .h1 {
 }
 
 h2, .h2 {
-  font-size: 22px;
   line-height: 1.3;
   letter-spacing: 0;
 }
 @media (min-width: 768px) {
   h2, .h2 {
-    font-size: 28px;
     line-height: 1.1666666667;
   }
 }
@@ -36499,15 +36497,15 @@ html.boxed .rd-navbar--is-clone {
   background-position: center center;
   background-repeat: no-repeat;
   white-space: nowrap;
-}
-.swiper-slide:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background: rgba(255, 255, 255, 0.5);
+  /*&:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba($white, .5);
+  }*/
 }
 .swiper-slide-caption {
   position: relative;
@@ -36532,9 +36530,6 @@ html.boxed .rd-navbar--is-clone {
   .swiper-slide {
     min-height: 500px;
     padding: 60px 0;
-  }
-  .swiper-slide:before {
-    display: none;
   }
 }
 @media (min-width: 1200px) {

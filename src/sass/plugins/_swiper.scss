@@ -369,7 +369,7 @@ $slide-min-height-xl: 100vh;
 
   white-space: nowrap;
 
-  &:before {
+  /*&:before {
     content: "";
     position: absolute;
     left: 0;
@@ -377,7 +377,7 @@ $slide-min-height-xl: 100vh;
     top: 0;
     bottom: 0;
     background: rgba($white, .5);
-  }
+  }*/
 
   &-caption {
     position: relative;
@@ -402,7 +402,7 @@ $slide-min-height-xl: 100vh;
     min-height: 500px;
     padding: 60px 0;
 
-    &:before { display: none; }
+    //&:before { display: none; }
   }
 
   @media (min-width: $screen-lg) {
